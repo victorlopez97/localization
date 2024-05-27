@@ -1,5 +1,6 @@
 package com.meli.localization.entity.infocountries;
 
+import com.meli.localization.entity.infocountries.currency.Currencies;
 import com.meli.localization.entity.infocountries.name.Name;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,6 +21,7 @@ public class ResponseCountry {
     private String cca3;
     private String cioc;
     private Map<String, String> languages;
+    private Map<String, Currencies> currencies;
     private List<String> timezones;
     private List<String> latlng;
 }
