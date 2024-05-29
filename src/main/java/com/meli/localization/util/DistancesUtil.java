@@ -34,6 +34,6 @@ public class DistancesUtil {
                 distanceMax = distanceWithBuenosAires;
             }
         }
-        return "("+"Distancia minima"+distanceMin+", "+"Distancia maxima"+distanceMax+")";
+        return "("+"Distancia minima %.2f km "+distanceMin+", "+"Distancia maxima %.2f km "+distanceMax+")";
     }
 }

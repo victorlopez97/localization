@@ -26,7 +26,7 @@ public class IpLocationService implements IIpLocationService {
         LOGGER.info("Start service getInfoOfMoneda: {}" , ipPublic);
         try {
             UriComponentsBuilder url = UriComponentsBuilder.fromHttpUrl(URLIPSERVICE).queryParam("ip",ipPublic);
-            LOGGER.info("Url api ip location: {}" , url);
+            LOGGER.info("Url api ip location: {}" , url.toUriString());
             ResponseEntity<ResponseIpLocation> response = restTemplate.exchange(url.toUriString(), HttpMethod.GET, null, ResponseIpLocation.class);
             LOGGER.info("Response service information ip location: {}" , response.getBody());
             return response.getBody();
