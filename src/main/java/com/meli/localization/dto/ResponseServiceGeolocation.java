@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class ResponseServiceGeolocation {
     @JsonProperty("Ip")
     private String ip;
-    @JsonProperty("FechaActual")
+    @JsonProperty("Fecha Actual")
     private String fechaactual;
     @JsonProperty("Pais")
     private String pais;
@@ -26,7 +26,7 @@ public class ResponseServiceGeolocation {
     private String moneda;
     @JsonProperty("Hora")
     private String hora;
-    @JsonProperty("DistaciaEstimada")
+    @JsonProperty("Distacia Estimada")
     private String distaciaestimada;
 
 
