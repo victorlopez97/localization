@@ -10,6 +10,7 @@ import com.meli.localization.services.IInfoCountriesService;
 import com.meli.localization.services.IInfoMonedaService;
 import com.meli.localization.services.IIpLocationService;
 import com.meli.localization.util.DateUtil;
+import com.meli.localization.util.DistancesUtil;
 import com.meli.localization.util.ValuesHomologationUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,6 +52,7 @@ public class GeolocationIpService implements IGeolocationIpService {
                 .map(Map.Entry::getValue)
                 .findFirst()
                 .orElse(null);
+        String distanciaaprox = DistancesUtil.calculateDistances(responseIpService.getLatitude(), responseIpService.getLongitude());
         return ResponseServiceGeolocation.builder()
                 .ip(responseIpService.getIp())
                 .fechaactual(DateUtil.convertNowDate(new Date()))
@@ -59,7 +61,7 @@ public class GeolocationIpService implements IGeolocationIpService {
                 .iso(responseIpService.getCountry_code())
                 .idioma(ValuesHomologationUtil.getLanguagesAsString(getInfoCountry.getLanguages()))
                 .moneda(getInfoCountry.getCurrencies().keySet().iterator().next() + " (" + "1 " + getInfoCountry.getCurrencies().keySet().iterator().next() + " = " + getValueMoneda + ")")
-                .distaciaestimada("")
+                .distaciaestimada(distanciaaprox)
                 .build();
     }
 
