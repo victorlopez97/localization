@@ -18,22 +18,17 @@ public class DistancesUtil {
     }
 
     public static String calculateDistances(double lat, double lon) {
-        double distanceMin = Double.MAX_VALUE;
-        double distanceMax = Double.MIN_VALUE;
+        double distanceEntryCountry = Double.MAX_VALUE;
 
         double[][] coordinates = {{lat, lon}};
 
         for (double[] coordinate : coordinates) {
             double distanceWithBuenosAires = calculateDistanceswithPoints(BUENOS_AIRES_LAT, BUENOS_AIRES_LON, coordinate[0], coordinate[1]);
 
-            if (distanceWithBuenosAires < distanceMin) {
-                distanceMin = distanceWithBuenosAires;
-            }
-
-            if (distanceWithBuenosAires > distanceMax) {
-                distanceMax = distanceWithBuenosAires;
+            if (distanceWithBuenosAires < distanceEntryCountry) {
+                distanceEntryCountry = distanceWithBuenosAires;
             }
         }
-        return "("+"Distancia minima "+distanceMin+", "+"Distancia maxima "+distanceMax+")";
+        return "("+"Distancia entre los paises "+distanceEntryCountry+")";
     }
 }
