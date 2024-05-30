@@ -26,7 +26,7 @@ public class InfoMonedaService implements IInfoMonedaService {
         LOGGER.info("Start service getInfoOfMoneda: {}" , codeCountryMoney);
         try{
             UriComponentsBuilder url = UriComponentsBuilder.fromHttpUrl(URLMONEDA).pathSegment(codeCountryMoney);
-            LOGGER.info("Url api moneda: {}", url);
+            LOGGER.info("Url api moneda: {}", url.toUriString());
             ResponseEntity<ResponseMonedaInfo> response = restTemplate.exchange(url.toUriString(), HttpMethod.GET, null, ResponseMonedaInfo.class);
             LOGGER.info("Response service information moneda by country: {}" , response.getBody());
             return response.getBody();

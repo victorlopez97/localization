@@ -32,7 +32,7 @@ public class InfoCountriesService implements IInfoCountriesService {
         LOGGER.info("Start service getInfoCountries: {}" , country);
         try {
             UriComponentsBuilder url = UriComponentsBuilder.fromHttpUrl(URLCOUNTRY).pathSegment(country);
-            LOGGER.info("Url api info country: {}" , url);
+            LOGGER.info("Url api info country: {}", url.toUriString());
             ResponseEntity<List<ResponseCountry>> response = restTemplate.exchange(url.toUriString(), HttpMethod.GET, null, new ParameterizedTypeReference<List<ResponseCountry>>() {});
             LOGGER.info("Response service information country: {}" , response.getBody());
             return response.getBody();
